@@ -1,0 +1,54 @@
+{
+  "common": {
+    "search": "Rechercher",
+    "save": "Sauvegarder",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "loading": "Chargement...",
+    "noResults": "Aucun résultat",
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "patients": "Patients",
+    "seances": "Séances",
+    "factures": "Factures",
+    "kpi": "KPI",
+    "parametres": "Paramètres"
+  },
+  "editor": {
+    "enableMode": "Activer le mode éditeur",
+    "exitMode": "Quitter l'édition",
+    "addModule": "Ajouter un module",
+    "save": "Sauvegarder le layout",
+    "reset": "Réinitialiser",
+    "exportLayout": "Exporter en JSON",
+    "importLayout": "Importer un JSON",
+    "duplicate": "Dupliquer",
+    "settings": "Paramètres du module",
+    "unsavedChanges": "Modifications non sauvegardées"
+  },
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "patients": {
+    "title": "Patients",
+    "newPatient": "Nouveau patient",
+    "actif": "Actif",
+    "inactif": "Inactif"
+  },
+  "seances": {
+    "title": "Séances",
+    "newSeance": "Nouvelle séance",
+    "importDoctolib": "Importer Doctolib"
+  },
+  "factures": {
+    "title": "Factures",
+    "newDraft": "Nouveau brouillon"
+  }
+}

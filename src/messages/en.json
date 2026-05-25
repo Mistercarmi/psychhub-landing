@@ -1,0 +1,54 @@
+{
+  "common": {
+    "search": "Search",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "loading": "Loading...",
+    "noResults": "No results",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "patients": "Patients",
+    "seances": "Sessions",
+    "factures": "Invoices",
+    "kpi": "KPI",
+    "parametres": "Settings"
+  },
+  "editor": {
+    "enableMode": "Enable editor mode",
+    "exitMode": "Exit editing",
+    "addModule": "Add a module",
+    "save": "Save layout",
+    "reset": "Reset",
+    "exportLayout": "Export as JSON",
+    "importLayout": "Import a JSON",
+    "duplicate": "Duplicate",
+    "settings": "Module settings",
+    "unsavedChanges": "Unsaved changes"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "patients": {
+    "title": "Patients",
+    "newPatient": "New patient",
+    "actif": "Active",
+    "inactif": "Inactive"
+  },
+  "seances": {
+    "title": "Sessions",
+    "newSeance": "New session",
+    "importDoctolib": "Import Doctolib"
+  },
+  "factures": {
+    "title": "Invoices",
+    "newDraft": "New draft"
+  }
+}

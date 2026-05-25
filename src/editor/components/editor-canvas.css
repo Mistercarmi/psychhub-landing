@@ -1,0 +1,54 @@
+/* Surcharges visuelles pour react-grid-layout dans PsychHub.
+   Garde les classes Tailwind appliquées aux ModuleWrapper inchangées. */
+
+.editor-canvas .react-grid-item {
+  transition: box-shadow 120ms ease, transform 200ms ease;
+}
+
+.editor-canvas .react-grid-item.react-draggable-dragging {
+  z-index: 30;
+  box-shadow: 0 12px 24px -8px hsl(var(--ring) / 0.25);
+  cursor: grabbing;
+}
+
+.editor-canvas .react-grid-item.resizing {
+  z-index: 30;
+  opacity: 0.95;
+}
+
+.editor-canvas .react-grid-placeholder {
+  background: hsl(var(--primary) / 0.12) !important;
+  border: 2px dashed hsl(var(--primary) / 0.5);
+  border-radius: var(--radius);
+  opacity: 1 !important;
+  transition: none;
+}
+
+.editor-canvas .react-resizable-handle {
+  background-image: none;
+  padding: 0;
+  width: 14px;
+  height: 14px;
+}
+
+.editor-canvas .react-resizable-handle::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid hsl(var(--muted-foreground));
+  border-bottom: 2px solid hsl(var(--muted-foreground));
+  border-radius: 0 0 2px 0;
+}
+
+.editor-canvas .react-grid-item > .react-resizable-handle {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.editor-canvas .react-grid-item:hover > .react-resizable-handle,
+.editor-canvas .react-grid-item.react-draggable-dragging > .react-resizable-handle {
+  opacity: 1;
+}

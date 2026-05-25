@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+# Pre-commit hook PsychHub
+# - lint-staged : ESLint --fix sur les fichiers modifiés (rapide)
+# - typecheck : tsc --noEmit sur tout le projet (~2-5s)
+# Pour bypasser ponctuellement (à éviter) : git commit --no-verify
+
+set -e
+
+echo "▶ lint-staged"
+npx --no-install lint-staged
+
+echo "▶ typecheck"
+npm run -s typecheck

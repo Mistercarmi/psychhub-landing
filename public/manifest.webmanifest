@@ -1,0 +1,45 @@
+{
+  "name": "PsychHub — Cabinet de psychologie",
+  "short_name": "PsychHub",
+  "description": "Gestion locale et sécurisée d'un cabinet de psychologie : patients, séances, factures, KPI.",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fbfcfd",
+  "theme_color": "#2c8a8c",
+  "lang": "fr-FR",
+  "icons": [
+    {
+      "src": "/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nouvelle séance",
+      "short_name": "Séance",
+      "url": "/seances",
+      "description": "Créer une nouvelle séance"
+    },
+    {
+      "name": "Patients",
+      "short_name": "Patients",
+      "url": "/patients"
+    },
+    {
+      "name": "Factures",
+      "short_name": "Factures",
+      "url": "/factures"
+    }
+  ],
+  "categories": ["business", "productivity", "medical"]
+}

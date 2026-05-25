@@ -1,0 +1,30 @@
+node_modules
+.next
+out
+build
+dist
+
+# Data
+data/
+*.db
+*.db-journal
+
+# Local backups
+Sauvegarde/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+
+# Logs
+*.log
+npm-debug.log*

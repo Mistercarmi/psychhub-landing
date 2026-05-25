@@ -1,0 +1,362 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ---- Patient ----
+model Patient {
+  id             String    @id @default(cuid())
+  nom            String
+  prenom         String
+  dateNaissance  DateTime?
+  email          String?
+  telephone      String?
+  adresse        String?
+  numeroSecu     String?
+  motifConsult   String?
+  notesCliniques String?
+  photoUrl       String?
+  actif          Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  seances  Seance[]
+  factures Facture[]
+  tags     PatientTag[]
+
+  @@index([nom, prenom])
+  @@index([email])
+  @@index([actif])
+}
+
+// ---- Séance ----
+model Seance {
+  id           String   @id @default(cuid())
+  patientId    String
+  patient      Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  date         DateTime
+  dureeMinutes Int      @default(50)
+  tarif        Float
+  statut       String   @default("PLANIFIEE")
+  sourceImport String?
+  doctolibRef  String?  @unique
+  notesSeance  String?
+  factureId    String?
+  facture      Facture? @relation(fields: [factureId], references: [id])
+  /// Horodatage du dernier rappel mail envoyé. null = jamais rappelée.
+  /// Réinitialisé à null si la date de la séance change.
+  rappelEnvoyeAt DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  tags SeanceTag[]
+
+  @@index([date])
+  @@index([patientId])
+  @@index([statut, date])
+}
+
+// SeanceStatut: PLANIFIEE | HONOREE | ANNULEE_PATIENT | ANNULEE_PRATICIEN | ABSENCE
+// (SQLite + Prisma : on stocke en String pour rester portable au backup Sheets)
+
+// ---- Facture ----
+model Facture {
+  id                   String    @id @default(cuid())
+  numero               String    @unique
+  patientId            String
+  patient              Patient   @relation(fields: [patientId], references: [id])
+  dateEmission         DateTime  @default(now())
+  dateEcheance         DateTime?
+  montantHT            Float
+  montantTTC           Float
+  tva                  Float     @default(0)
+  statut               String    @default("BROUILLON")
+  datePaiement         DateTime?
+  modePaiement         String?
+  notes                String?
+  pdfPath              String?
+  /// JSON: { description, montant, quantite }[]. Lignes facturées hors séances.
+  lignesLibres         String?
+  /// Acompte déjà versé. Soustrait du solde dû.
+  acompte              Float     @default(0)
+  /// JSON: { date, type }[] (J+15, J+30...). Trace des relances émises.
+  relancesEnvoyeesJson String?
+  seances              Seance[]
+  tags                 FactureTag[]
+  paiements            Paiement[]
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  @@index([statut])
+  @@index([dateEmission])
+  @@index([patientId])
+}
+
+/// Trace les versements partiels reçus pour une facture émise.
+model Paiement {
+  id        String   @id @default(cuid())
+  factureId String
+  facture   Facture  @relation(fields: [factureId], references: [id], onDelete: Cascade)
+  date      DateTime @default(now())
+  montant   Float
+  mode      String?  // "VIREMENT" | "CB" | "CHEQUE" | "ESPECES" | "AUTRE"
+  reference String?
+  createdAt DateTime @default(now())
+
+  @@index([factureId])
+  @@index([date])
+}
+
+// FactureStatut: BROUILLON | EMISE | PAYEE | EN_RETARD | ANNULEE
+
+// ---- Config cabinet (singleton, id="default") ----
+model Config {
+  id                          String    @id @default("default")
+  cabinetNom                  String?
+  praticienNom                String?
+  adresse                     String?
+  telephone                   String?
+  email                       String?
+  siret                       String?
+  adeli                       String?
+  iban                        String?
+  tarifDefaut                 Float     @default(60)
+  dureeDefaut                 Int       @default(50)
+  tvaDefaut                   Float     @default(0)
+  prefixeFacture              String    @default("F")
+  templateMailRelance         String?
+  templateMailConfirmation    String?
+  templateMailRappelSeance    String?
+  rappelsActifs               Boolean   @default(false)
+  rappelsHeuresAvant          Int       @default(24)
+  /// Logo en base64 (data:image/png;base64,...) injecté dans le PDF de facture.
+  logoBase64                  String?
+  /// Couleur d'accent du template PDF (ex: #2563eb).
+  couleurPrimaire             String?
+  /// Mentions légales personnalisées (remplace le texte par défaut du footer).
+  mentionsLegales             String?
+  /// JSON: nombre de jours après émission pour déclencher les relances (ex: [15, 30, 45]).
+  delaisRelancesJson          String?
+  googleRefreshToken          String?
+  googleSheetBackupId         String?
+  googleAccessMode            String    @default("READ_WRITE")
+  googleConnectedAt           DateTime?
+  googleAccountEmail          String?
+  // --- Sauvegardes (P5/P6) ---
+  backupAutoEnabled           Boolean   @default(true)
+  backupIntervalHours         Int       @default(24)
+  backupLastRunAt             DateTime?
+  backupWarningThresholdDays  Int       @default(3)
+  externalBackupFolder        String?
+  backupDestinationsJson      String?   // JSON: { local: boolean, drive: boolean, external: boolean }
+  /// Nombre de jours de rétention des sauvegardes locales (0 = jamais purger).
+  /// La purge s'exécute après chaque sauvegarde réussie et conserve toujours
+  /// au moins `backupMinKeep` fichiers, même s'ils sont plus anciens.
+  backupRetentionDays         Int       @default(30)
+  /// Nombre minimum de sauvegardes à conserver, quelle que soit la rétention en jours.
+  backupMinKeep               Int       @default(7)
+  updatedAt                   DateTime  @updatedAt
+}
+
+// ---- Layout Editor (P1) ----
+// Stocke la composition WYSIWYG d'un onglet de l'application.
+// `modules` et `gridConfig` sont sérialisés en JSON (SQLite : String).
+// `userId` reste null en mode mono-utilisateur ; préparé pour multi-user futur.
+model Layout {
+  id            String   @id @default(cuid())
+  tabKey        String
+  name          String   @default("Default")
+  isDefault     Boolean  @default(false)
+  userId        String?
+  modules       String   // JSON: ModuleConfig[]
+  gridConfig    String   // JSON: { cols, rowHeight, gap, breakpoints, compactType }
+  schemaVersion Int      @default(1)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([tabKey, name, userId])
+  @@index([tabKey])
+}
+
+// LayoutPreset : layouts pré-fournis ou créés par l'utilisateur, applicables à un onglet.
+model LayoutPreset {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  tabKey      String
+  modules     String   // JSON: ModuleConfig[]
+  isBuiltIn   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+// ---- Tags & catégorisation (P3) ----
+// Tag transverse réutilisable sur Patient / Seance / Facture.
+model Tag {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  color     String?
+  createdAt DateTime @default(now())
+
+  patients PatientTag[]
+  seances  SeanceTag[]
+  factures FactureTag[]
+}
+
+model PatientTag {
+  patientId String
+  tagId     String
+  patient   Patient @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([patientId, tagId])
+  @@index([tagId])
+}
+
+model SeanceTag {
+  seanceId String
+  tagId    String
+  seance   Seance @relation(fields: [seanceId], references: [id], onDelete: Cascade)
+  tag      Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([seanceId, tagId])
+  @@index([tagId])
+}
+
+model FactureTag {
+  factureId String
+  tagId     String
+  facture   Facture @relation(fields: [factureId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([factureId, tagId])
+  @@index([tagId])
+}
+
+// ---- Audit log (P3) ----
+// Trace toutes les mutations métier (création, modification, suppression) pour RGPD.
+model AuditLog {
+  id         String   @id @default(cuid())
+  entityType String   // "Patient" | "Seance" | "Facture" | "Config" | "Layout"
+  entityId   String?
+  action     String   // "CREATE" | "UPDATE" | "DELETE" | "READ_SENSITIVE"
+  before     String?  // JSON snapshot before
+  after      String?  // JSON snapshot after
+  userId     String?  // null en mono-user
+  createdAt  DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+// ---- Templates de séance (P3) ----
+model SeanceTemplate {
+  id           String   @id @default(cuid())
+  name         String   @unique
+  dureeMinutes Int      @default(50)
+  tarif        Float    @default(60)
+  motifType    String?
+  notesBase    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// ============================================================
+// Hub Logs : ImportLog, ExportLog, ExportTemplate, BackupLog
+// Journal unifié pour traçabilité et dashboard sauvegardes.
+// ============================================================
+
+model ImportLog {
+  id                String   @id @default(cuid())
+  source            String   // "doctolib" | "excel" | "csv" | "gsheets"
+  filename          String?
+  detectedType      String?
+  status            String   @default("PREVIEW") // "PREVIEW" | "APPLIED" | "FAILED" | "CANCELLED"
+  patientsCreated   Int      @default(0)
+  patientsUpdated   Int      @default(0)
+  seancesCreated    Int      @default(0)
+  seancesUpdated    Int      @default(0)
+  facturesCreated   Int      @default(0)
+  facturesUpdated   Int      @default(0)
+  conflictsResolved Int      @default(0)
+  rowsSkipped       Int      @default(0)
+  mapping           String?  // JSON
+  errors            String?  // JSON array
+  durationMs        Int?
+  createdAt         DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([source])
+}
+
+/// Sauvegarde un mapping XLSX/CSV → entités pour réutilisation entre imports.
+model ImportMappingPreset {
+  id           String   @id @default(cuid())
+  name         String
+  source       String   // "doctolib" | "excel" | "csv" | "gsheets"
+  targetEntity String   // "patients" | "seances" | "factures"
+  mapping      String   // JSON: { [columnXlsx]: champEntite }
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([name, targetEntity])
+  @@index([source])
+  @@index([targetEntity])
+}
+
+model ExportTemplate {
+  id          String      @id @default(cuid())
+  name        String      @unique
+  description String?
+  format      String
+  scope       String      // JSON identique à ExportLog.scope
+  isBuiltIn   Boolean     @default(false)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  exports     ExportLog[]
+}
+
+model ExportLog {
+  id           String          @id @default(cuid())
+  format       String          // "xlsx" | "pdf" | "docx" | "gsheets" | "json"
+  destination  String          // "download" | "local_folder" | "drive" | "external_folder"
+  scope        String          // JSON: { tables, dateFrom, dateTo, statuses, tagIds, patientIds, columns }
+  templateId   String?
+  template     ExportTemplate? @relation(fields: [templateId], references: [id])
+  rowCounts    String          // JSON
+  filePath     String?
+  externalUrl  String?
+  sizeBytes    Int?
+  status       String          @default("OK") // "OK" | "FAILED"
+  errorMessage String?
+  createdAt    DateTime        @default(now())
+
+  @@index([createdAt])
+  @@index([format])
+}
+
+model BackupLog {
+  id             String   @id @default(cuid())
+  type           String   // "LOCAL_BACKUP" | "GSHEETS_SYNC" | "FULL_SNAPSHOT" | "EXTERNAL_FOLDER"
+  format         String   // "xlsx" | "xlsx+json" | "gsheets"
+  destination    String
+  filePath       String?
+  externalUrl    String?
+  sizeBytes      Int?
+  counts         String   // JSON: { patients, seances, factures, ... }
+  status         String   @default("OK") // "OK" | "FAILED"
+  errorMessage   String?
+  triggeredBy    String   @default("manual") // "manual" | "scheduled"
+  /// Hash SHA-256 du fichier — permet de vérifier l'intégrité au restore.
+  hash           String?
+  /// Résultat du dernier `verifyBackupIntegrity()` : null = jamais vérifié, true = OK, false = corrompu.
+  signatureValid Boolean?
+  createdAt      DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([type])
+}
