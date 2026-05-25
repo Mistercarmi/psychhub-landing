@@ -12,13 +12,11 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════
-     HEADER
-════════════════════════════════════════════════════ -->
+<!-- HEADER -->
 <header>
   <div class="container header-inner">
     <a href="#" class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="32" height="32">
         <rect width="192" height="192" rx="40" fill="#2c8a8c"/>
         <g transform="translate(48,48)" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
           <path d="M16 8v40c0 13.3 10.7 24 24 24h0c13.3 0 24-10.7 24-24V8"/>
@@ -27,940 +25,280 @@
           <path d="M40 84v8"/>
         </g>
       </svg>
-      Psych<span>Hub</span>
+      <span>PsychHub</span>
     </a>
-
     <nav>
-      <a href="#features">Fonctionnalités</a>
-      <a href="#suivi">Suivi patient</a>
+      <a href="#avantages">Avantages</a>
+      <a href="#fonctionnalites">Fonctionnalités</a>
       <a href="#doctolib">Doctolib</a>
-      <a href="#compat">Compatibilité</a>
-      <a href="#trust">Sécurité</a>
+      <a href="#securite">Sécurité</a>
     </nav>
-
-    <a href="#features" class="btn btn-primary header-cta">Découvrir le logiciel</a>
+    <a href="https://github.com/Mistercarmi/psychhub-landing" target="_blank" class="btn btn-primary">GitHub</a>
   </div>
 </header>
 
-
-<!-- ═══════════════════════════════════════════════════
-     HERO
-════════════════════════════════════════════════════ -->
-<section id="hero">
+<!-- HERO -->
+<section id="hero" class="hero">
   <div class="container">
-    <div class="hero-inner">
+    <div class="hero-content">
+      <h1 class="hero-title">Le cabinet organisé.<br><strong>Les données, chez vous.</strong></h1>
+      <p class="hero-subtitle">PsychHub est un logiciel local, sécurisé et gratuit pour les psychologues en cabinet solo. Aucun serveur externe, aucun abonnement.</p>
 
-      <!-- Texte -->
-      <div class="hero-content">
-        <p class="hero-label">Logiciel libre pour psychologues</p>
-
-        <h1 class="hero-title">
-          Le cabinet,&nbsp;organisé.<br>
-          Les données,&nbsp;<em>chez&nbsp;vous.</em>
-        </h1>
-
-        <p class="hero-subtitle">
-          PsychHub est un logiciel local et sécurisé pour les psychologues
-          en cabinet solo — patients, séances, factures et KPI, sans aucun
-          abonnement ni serveur externe.
-        </p>
-
-        <div class="hero-badges">
-          <span class="badge">🔒 Local-first</span>
-          <span class="badge">🇫🇷 Données en France</span>
-          <span class="badge">🆓 Gratuit &amp; open-source</span>
-          <span class="badge">📋 RGPD by design</span>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-icon">🔒</div>
+          <div class="stat-label">Local-first</div>
+          <div class="stat-desc">Vos données restent chez vous</div>
         </div>
-
-        <div class="hero-actions">
-          <a href="#features" class="btn btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-            Voir les fonctionnalités
-          </a>
-          <a href="#" class="btn btn-outline">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-            GitHub
-          </a>
+        <div class="stat">
+          <div class="stat-icon">🆓</div>
+          <div class="stat-label">Gratuit</div>
+          <div class="stat-desc">Aucun abonnement</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon">📱</div>
+          <div class="stat-label">Partout</div>
+          <div class="stat-desc">PC, tablette, téléphone</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon">📋</div>
+          <div class="stat-label">RGPD</div>
+          <div class="stat-desc">Conformité garantie</div>
         </div>
       </div>
 
-      <!-- Mockup applicatif -->
-      <div class="mockup-wrap">
-        <div class="mockup-shadow">
-          <!-- Barre navigateur -->
-          <div class="mockup-titlebar">
-            <span class="dot red"></span>
-            <span class="dot amber"></span>
-            <span class="dot green"></span>
-            <div class="mockup-url">localhost:3000/dashboard</div>
-          </div>
-
-          <!-- Corps de l'app -->
-          <div class="mockup-body">
-            <!-- Sidebar -->
-            <div class="mockup-sidebar">
-              <div class="sidebar-logo-area">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
-                  <rect width="192" height="192" rx="40" fill="#2c8a8c"/>
-                  <g transform="translate(48,48)" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                    <path d="M16 8v40c0 13.3 10.7 24 24 24h0c13.3 0 24-10.7 24-24V8"/>
-                    <path d="M16 8h12"/><path d="M52 8h12"/>
-                    <circle cx="40" cy="80" r="4" fill="#ffffff"/>
-                    <path d="M40 84v8"/>
-                  </g>
-                </svg>
-                <span class="sidebar-logo-text">PsychHub</span>
-              </div>
-
-              <div class="sidebar-item active">
-                <div class="sidebar-icon" style="border-radius:3px;"></div>
-                Dashboard
-              </div>
-              <div class="sidebar-item">
-                <div class="sidebar-icon" style="border-radius:50%;"></div>
-                Patients
-              </div>
-              <div class="sidebar-item">
-                <div class="sidebar-icon" style="border-radius:2px;"></div>
-                Séances
-              </div>
-              <div class="sidebar-item">
-                <div class="sidebar-icon" style="border-radius:1px;"></div>
-                Factures
-              </div>
-              <div class="sidebar-item">
-                <div class="sidebar-icon" style="border-radius:4px;"></div>
-                KPI
-              </div>
-            </div>
-
-            <!-- Contenu principal -->
-            <div class="mockup-main">
-              <div class="mockup-topbar">
-                <span class="mockup-title-text">Tableau de bord</span>
-                <span class="mockup-tag">Mai 2026</span>
-              </div>
-
-              <div class="kpi-grid">
-                <div class="kpi-card">
-                  <div class="kpi-label">CA du mois</div>
-                  <div class="kpi-value">4 320&nbsp;€</div>
-                  <div class="kpi-sub">↑ +8% vs avril</div>
-                </div>
-                <div class="kpi-card">
-                  <div class="kpi-label">Séances réalisées</div>
-                  <div class="kpi-value">48</div>
-                  <div class="kpi-sub">↑ +3 vs objectif</div>
-                </div>
-                <div class="kpi-card">
-                  <div class="kpi-label">Patients actifs</div>
-                  <div class="kpi-value">24</div>
-                  <div class="kpi-sub">+2 ce mois-ci</div>
-                </div>
-                <div class="kpi-card">
-                  <div class="kpi-label">Impayés</div>
-                  <div class="kpi-value">180&nbsp;€</div>
-                  <div class="kpi-sub" style="color:#e74c3c;">2 factures en retard</div>
-                </div>
-              </div>
-
-              <div class="mini-chart">
-                <div class="chart-label">Séances / semaine</div>
-                <div class="chart-bars">
-                  <div class="chart-bar" style="height:55%"></div>
-                  <div class="chart-bar" style="height:70%"></div>
-                  <div class="chart-bar" style="height:60%"></div>
-                  <div class="chart-bar" style="height:85%"></div>
-                  <div class="chart-bar current" style="height:75%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="floating-badge">
-          <span class="floating-badge-dot"></span>
-          Application locale active
-        </div>
+      <div class="hero-actions">
+        <a href="#avantages" class="btn btn-primary btn-large">Découvrir</a>
+        <a href="https://github.com/Mistercarmi/psychhub-landing" target="_blank" class="btn btn-outline btn-large">Code source</a>
       </div>
-
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════
-     FEATURES
-════════════════════════════════════════════════════ -->
-<section id="features">
+<!-- AVANTAGES PRINCIPAUX -->
+<section id="avantages" class="advantages fade-up">
   <div class="container">
-    <div class="section-header fade-up">
-      <p class="section-label">Tout ce dont vous avez besoin</p>
-      <h2 class="section-title">Un logiciel conçu pour la pratique réelle</h2>
-      <p class="section-desc">
-        Chaque fonctionnalité a été pensée pour les contraintes du cabinet solo —
-        rapidité de saisie, conformité RGPD et zéro dépendance à internet.
-      </p>
+    <h2>Pourquoi PsychHub ?</h2>
+    <div class="advantages-grid">
+      <div class="advantage-card">
+        <div class="adv-number">1</div>
+        <h3>Patients</h3>
+        <p>Fiche complète, notes cliniques, historique des séances, coordonnées validées. Tout accessible en un coup d'œil.</p>
+      </div>
+      <div class="advantage-card">
+        <div class="adv-number">2</div>
+        <h3>Séances</h3>
+        <p>Planning, rappels automatiques, synchro Doctolib intégrée. Zéro saisie redondante, mise à jour automatique.</p>
+      </div>
+      <div class="advantage-card">
+        <div class="adv-number">3</div>
+        <h3>Factures</h3>
+        <p>Génération PDF automatique, relances intelligentes, suivi des paiements. Impayes détectés automatiquement.</p>
+      </div>
+      <div class="advantage-card">
+        <div class="adv-number">4</div>
+        <h3>KPI</h3>
+        <p>Chiffre d'affaires, taux d'impayés, taux d'absence, analyses personnalisables. Dashboard en temps réel.</p>
+      </div>
+      <div class="advantage-card">
+        <div class="adv-number">5</div>
+        <h3>Configurez tout</h3>
+        <p>Éditeur WYSIWYG en drag-drop. Composez votre interface idéale sans coder. Undo/redo illimité.</p>
+      </div>
+      <div class="advantage-card">
+        <div class="adv-number">6</div>
+        <h3>Zéro perte</h3>
+        <p>Backup automatique, export Excel illimité, accès offline. Vos données sont toujours sauvegardées.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTOLIB SPOTLIGHT -->
+<section id="doctolib" class="doctolib-spotlight fade-up">
+  <div class="container">
+    <div class="spotlight-header">
+      <h2>Doctolib synchronisé automatiquement</h2>
+      <p>Importez vos rendez-vous en 3 clics, sans aucune saisie manuelle.</p>
     </div>
 
+    <div class="doctolib-flow">
+      <div class="flow-step">
+        <div class="flow-number">1</div>
+        <div class="flow-text">
+          <h4>Exporter Doctolib</h4>
+          <p>Téléchargez votre fichier "Mes rendez-vous" en XLSX</p>
+        </div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-number">2</div>
+        <div class="flow-text">
+          <h4>Uploader</h4>
+          <p>Glisser-déposer le fichier dans PsychHub</p>
+        </div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-number">3</div>
+        <div class="flow-text">
+          <h4>C'est fait !</h4>
+          <p>Séances créées, patients auto, statuts à jour</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="doctolib-benefits">
+      <h3>✨ Résultat : zéro saisie manuelle</h3>
+      <div class="benefits-list">
+        <div class="benefit">✓ Import en 3 clics — export Doctolib → upload → synchronisé</div>
+        <div class="benefit">✓ Création auto des patients inconnus avec leurs coordonnées</div>
+        <div class="benefit">✓ Statuts toujours à jour (planifiée, honorée, absence, annulée)</div>
+        <div class="benefit">✓ Historique complet conservé, aucune donnée perdue</div>
+        <div class="benefit">✓ Gagnez 30 min par semaine de saisie</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FONCTIONNALITÉS -->
+<section id="fonctionnalites" class="features fade-up">
+  <div class="container">
+    <h2>Fonctionnalités complètes</h2>
     <div class="features-grid">
-
-      <!-- 1 -->
-      <div class="feature-card fade-up">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
-        </div>
-        <h3 class="feature-title">Dossiers patients complets</h3>
-        <p class="feature-desc">
-          Historique clinique, notes de séance chiffrées, coordonnées validées (téléphone, IBAN, numéro SS).
-          Recherche globale instantanée &lt;&nbsp;200&nbsp;ms.
-        </p>
+      <div class="feature-card">
+        <div class="feature-icon">👤</div>
+        <h3>Dossiers patients</h3>
+        <p>Historique complet, notes cliniques, protocoles (TCC, EMDR, etc.), coordonnées validées.</p>
       </div>
-
-      <!-- 2 -->
-      <div class="feature-card fade-up">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/>
-            <line x1="8" y1="2" x2="8" y2="6"/>
-            <line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-        </div>
-        <h3 class="feature-title">Gestion des séances</h3>
-        <p class="feature-desc">
-          Planning visuel, détection de conflits, rappels patients par email (.eml),
-          <strong>synchro Doctolib automatique</strong> et export iCalendar pour votre agenda.
-        </p>
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <h3>Planning séances</h3>
+        <p>Calendrier interactif, rappels email automatiques, détection de conflits, synchro Doctolib.</p>
       </div>
-
-      <!-- 3 -->
-      <div class="feature-card fade-up">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-            <polyline points="10 9 9 9 8 9"/>
-          </svg>
-        </div>
-        <h3 class="feature-title">Facturation automatisée</h3>
-        <p class="feature-desc">
-          Génération PDF aux normes, relances automatiques par paliers (15 / 30 / 45 jours),
-          suivi des paiements et historique des encaissements.
-        </p>
+      <div class="feature-card">
+        <div class="feature-icon">🧾</div>
+        <h3>Facturation</h3>
+        <p>PDF automatisé, relances intelligentes, suivi paiements, statuts (émise, payée, retard).</p>
       </div>
-
-      <!-- 4 -->
-      <div class="feature-card fade-up">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24">
-            <line x1="18" y1="20" x2="18" y2="10"/>
-            <line x1="12" y1="20" x2="12" y2="4"/>
-            <line x1="6" y1="20" x2="6" y2="14"/>
-          </svg>
-        </div>
-        <h3 class="feature-title">Tableau de bord KPI</h3>
-        <p class="feature-desc">
-          Chiffre d&apos;affaires, taux d&apos;impayés, saisonnalité, taux de remplissage.
-          Graphiques Recharts interactifs, filtrables par période.
-        </p>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Dashboard KPI</h3>
+        <p>Chiffre d'affaires, taux impayés, taux absence, graphiques en temps réel.</p>
       </div>
-
-      <!-- 5 -->
-      <div class="feature-card fade-up">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="3" width="7" height="7"/>
-            <rect x="14" y="3" width="7" height="7"/>
-            <rect x="14" y="14" width="7" height="7"/>
-            <rect x="3" y="14" width="7" height="7"/>
-          </svg>
-        </div>
-        <h3 class="feature-title">Éditeur de tableau de bord</h3>
-        <p class="feature-desc">
-          Mode WYSIWYG avec glisser-déposer — composez votre dashboard idéal parmi
-          20+ modules, sauvegardez plusieurs layouts et basculez en un clic.
-        </p>
+      <div class="feature-card">
+        <div class="feature-icon">🖥️</div>
+        <h3>Éditeur WYSIWYG</h3>
+        <p>Configurez votre dashboard en drag-drop. Undo/redo illimité, sauvegarde automatique.</p>
       </div>
-
-      <!-- 6 -->
-      <div class="feature-card fade-up">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24">
-            <polyline points="20 7 12 3 4 7"/>
-            <polyline points="4 17 12 21 20 17"/>
-            <line x1="4" y1="12" x2="20" y2="12"/>
-            <polyline points="4 7 4 17"/>
-            <polyline points="20 7 20 17"/>
-          </svg>
-        </div>
-        <h3 class="feature-title">Sauvegardes automatiques</h3>
-        <p class="feature-desc">
-          Backup local chiffré (Excel + JSON) + synchronisation optionnelle Google Drive.
-          Intégrité vérifiée par SHA-256, rétention configurable.
-        </p>
+      <div class="feature-card">
+        <div class="feature-icon">💾</div>
+        <h3>Sauvegardes auto</h3>
+        <p>Backup local + Google Drive optionnel, export Excel, intégrité vérifiée par SHA-256.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════
-     PREVIEW
-════════════════════════════════════════════════════ -->
-<section id="preview">
+<!-- SÉCURITÉ -->
+<section id="securite" class="security fade-up">
   <div class="container">
-    <div class="section-header fade-up">
-      <p class="section-label">Aperçu de l&apos;interface</p>
-      <h2 class="section-title">Simple, rapide, professionnel</h2>
-      <p class="section-desc">
-        L&apos;interface a été conçue pour la saisie rapide entre deux séances —
-        chaque information est accessible en moins de 3 clics.
-      </p>
-    </div>
-
-    <div class="preview-grid fade-up">
-
-      <!-- Fenêtre patients -->
-      <div class="preview-window">
-        <div class="preview-titlebar">
-          <span class="dot red"></span>
-          <span class="dot amber"></span>
-          <span class="dot green"></span>
-          <span class="preview-tab active">Patients</span>
-          <span class="preview-tab">Séances</span>
-        </div>
-        <div class="preview-content">
-          <div class="patient-list">
-
-            <div class="patient-row">
-              <div class="patient-avatar" style="background:#2c8a8c;">ML</div>
-              <div class="patient-info">
-                <div class="patient-name">Marie Laurent</div>
-                <div class="patient-next">Prochaine séance : lundi 26 mai — 14h00</div>
-              </div>
-              <span class="status-pill active">Actif</span>
-            </div>
-
-            <div class="patient-row">
-              <div class="patient-avatar" style="background:#1f6466;">TD</div>
-              <div class="patient-info">
-                <div class="patient-name">Thomas Durand</div>
-                <div class="patient-next">Prochaine séance : mardi 27 mai — 10h00</div>
-              </div>
-              <span class="status-pill active">Actif</span>
-            </div>
-
-            <div class="patient-row">
-              <div class="patient-avatar" style="background:#4a6fa6;">CB</div>
-              <div class="patient-info">
-                <div class="patient-name">Claire Bernard</div>
-                <div class="patient-next">Rappel envoyé — en attente de confirmation</div>
-              </div>
-              <span class="status-pill pending">Rappel</span>
-            </div>
-
-            <div class="patient-row">
-              <div class="patient-avatar" style="background:#3d7a7a;">AR</div>
-              <div class="patient-info">
-                <div class="patient-name">Antoine Roux</div>
-                <div class="patient-next">Dernière séance : 12 mai 2026</div>
-              </div>
-              <span class="status-pill done">Terminé</span>
-            </div>
-
-          </div>
-        </div>
+    <h2>Sécurité & RGPD</h2>
+    <div class="security-grid">
+      <div class="security-item">
+        <h3>🔒 Local-first</h3>
+        <p>Aucun serveur externe. Vos données restent sur votre ordinateur, jamais transmises ailleurs.</p>
       </div>
-
-      <!-- Fenêtre KPI -->
-      <div class="preview-window">
-        <div class="preview-titlebar">
-          <span class="dot red"></span>
-          <span class="dot amber"></span>
-          <span class="dot green"></span>
-          <span class="preview-tab">Dashboard</span>
-          <span class="preview-tab active">KPI</span>
-        </div>
-        <div class="preview-content">
-
-          <div class="kpi-big-grid">
-            <div class="kpi-big-card">
-              <div class="kpi-big-label">CA — Mai 2026</div>
-              <div class="kpi-big-value">4 320&nbsp;€</div>
-              <div class="kpi-big-trend">↑ +8% vs avril</div>
-            </div>
-            <div class="kpi-big-card">
-              <div class="kpi-big-label">Séances réalisées</div>
-              <div class="kpi-big-value">48</div>
-              <div class="kpi-big-trend">↑ 3 de plus que l&apos;objectif</div>
-            </div>
-            <div class="kpi-big-card">
-              <div class="kpi-big-label">Patients actifs</div>
-              <div class="kpi-big-value">24</div>
-              <div class="kpi-big-trend">+2 ce mois-ci</div>
-            </div>
-            <div class="kpi-big-card">
-              <div class="kpi-big-label">Taux encaissement</div>
-              <div class="kpi-big-value">96%</div>
-              <div class="kpi-big-trend neg">180&nbsp;€ en attente</div>
-            </div>
-          </div>
-
-          <div class="mini-bar-chart">
-            <div class="mini-bar-header">
-              <span class="mini-bar-title">Chiffre d&apos;affaires — 6 derniers mois</span>
-              <span class="mini-bar-period">Nov → Mai</span>
-            </div>
-            <div class="bars-row">
-              <div class="bar-col">
-                <div class="bar-fill" style="height:60%"></div>
-                <span class="bar-lbl">N</span>
-              </div>
-              <div class="bar-col">
-                <div class="bar-fill" style="height:50%"></div>
-                <span class="bar-lbl">D</span>
-              </div>
-              <div class="bar-col">
-                <div class="bar-fill" style="height:72%"></div>
-                <span class="bar-lbl">J</span>
-              </div>
-              <div class="bar-col">
-                <div class="bar-fill" style="height:68%"></div>
-                <span class="bar-lbl">F</span>
-              </div>
-              <div class="bar-col">
-                <div class="bar-fill" style="height:80%"></div>
-                <span class="bar-lbl">A</span>
-              </div>
-              <div class="bar-col">
-                <div class="bar-fill hi" style="height:92%"></div>
-                <span class="bar-lbl">M</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
+      <div class="security-item">
+        <h3>📋 RGPD by design</h3>
+        <p>Conformité garantie. Audit trail de toutes les modifications, aucune transmission de données patient.</p>
       </div>
-
+      <div class="security-item">
+        <h3>🔐 Chiffrement</h3>
+        <p>BitLocker sur Windows, base de données protégée, validation renforcée (IBAN, téléphone, SIRET).</p>
+      </div>
+      <div class="security-item">
+        <h3>🆓 Open-source</h3>
+        <p>Code auditable et transparent. Communauté, pas de backdoor, confiance totale.</p>
+      </div>
     </div>
-
-    <p class="disclaimer fade-up">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-      Données entièrement fictives — aucune donnée patient réelle n&apos;est affichée ici.
-    </p>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════
-     SUIVI PATIENT
-════════════════════════════════════════════════════ -->
-<section id="suivi">
+<!-- COMPATIBILITÉ -->
+<section id="compat" class="compatibility fade-up">
   <div class="container">
-    <div class="suivi-inner">
+    <h2>Fonctionne partout</h2>
+    <p class="compat-desc">Accédez à vos données sur tous vos appareils, même hors ligne.</p>
 
-      <!-- Mockup fiche patient -->
-      <div class="suivi-mockup fade-up">
-        <div class="mockup-shadow">
-          <div class="mockup-titlebar">
-            <span class="dot red"></span>
-            <span class="dot amber"></span>
-            <span class="dot green"></span>
-            <div class="mockup-url">localhost:3000/patients/42</div>
-          </div>
-          <div class="fiche-body">
-
-            <!-- En-tête patient -->
-            <div class="fiche-header">
-              <div class="fiche-avatar">ML</div>
-              <div class="fiche-identity">
-                <div class="fiche-name">Marie Laurent</div>
-                <div class="fiche-meta">Née le 14/03/1988 · En suivi depuis janv. 2025 · 18 séances</div>
-                <div class="fiche-tags">
-                  <span class="fiche-tag green">Active</span>
-                  <span class="fiche-tag teal">TCC</span>
-                  <span class="fiche-tag indigo">Anxiété généralisée</span>
-                </div>
-              </div>
-              <div class="fiche-actions-row">
-                <div class="fiche-btn">Nouvelle séance</div>
-                <div class="fiche-btn outline">Exporter dossier</div>
-              </div>
-            </div>
-
-            <!-- Onglets -->
-            <div class="fiche-tabs">
-              <span class="fiche-tab active">Suivi clinique</span>
-              <span class="fiche-tab">Objectifs</span>
-              <span class="fiche-tab">Séances</span>
-              <span class="fiche-tab">Documents</span>
-            </div>
-
-            <!-- Contenu suivi clinique -->
-            <div class="fiche-notes">
-
-              <!-- Évolution bien-être -->
-              <div class="evolution-block">
-                <div class="evolution-header">
-                  <span class="evolution-title">Évolution du bien-être subjectif</span>
-                  <span class="evolution-scale">Échelle 0–10</span>
-                </div>
-                <div class="evolution-chart">
-                  <div class="evo-col">
-                    <div class="evo-bar-wrap"><div class="evo-bar" style="height:40%"></div></div>
-                    <span class="evo-lbl">S13</span>
-                    <span class="evo-val">4</span>
-                  </div>
-                  <div class="evo-col">
-                    <div class="evo-bar-wrap"><div class="evo-bar" style="height:50%"></div></div>
-                    <span class="evo-lbl">S14</span>
-                    <span class="evo-val">5</span>
-                  </div>
-                  <div class="evo-col">
-                    <div class="evo-bar-wrap"><div class="evo-bar" style="height:55%"></div></div>
-                    <span class="evo-lbl">S15</span>
-                    <span class="evo-val">5.5</span>
-                  </div>
-                  <div class="evo-col">
-                    <div class="evo-bar-wrap"><div class="evo-bar" style="height:62%"></div></div>
-                    <span class="evo-lbl">S16</span>
-                    <span class="evo-val">6.2</span>
-                  </div>
-                  <div class="evo-col">
-                    <div class="evo-bar-wrap"><div class="evo-bar" style="height:70%"></div></div>
-                    <span class="evo-lbl">S17</span>
-                    <span class="evo-val">7</span>
-                  </div>
-                  <div class="evo-col current">
-                    <div class="evo-bar-wrap"><div class="evo-bar hi" style="height:77%"></div></div>
-                    <span class="evo-lbl">S18</span>
-                    <span class="evo-val">7.7</span>
-                  </div>
-                </div>
-                <div class="evolution-trend">↑ Progression de +3,7 points sur 6 séances</div>
-              </div>
-
-              <!-- Note structurée dernière séance -->
-              <div class="note-entry">
-                <div class="note-date">22 mai 2026 — Séance n°18 · TCC · 50 min</div>
-                <div class="note-sections">
-                  <div class="note-section">
-                    <span class="note-section-label">Observations</span>
-                    <span class="note-section-text">Patiente plus apaisée. Sommeil amélioré depuis 3 sem. Évitement partiel réduit en contexte professionnel.</span>
-                  </div>
-                  <div class="note-section">
-                    <span class="note-section-label">Points de progrès</span>
-                    <span class="note-section-text">Restructuration cognitive des pensées catastrophisantes — 2 épisodes gérés autonomement cette semaine.</span>
-                  </div>
-                  <div class="note-section">
-                    <span class="note-section-label">Prochains objectifs</span>
-                    <span class="note-section-text">Exposition progressive au contexte de réunion. Exercice de relaxation musculaire à domicile.</span>
-                  </div>
-                </div>
-                <div class="note-footer">
-                  <span class="note-lock">🔒 Chiffré localement</span>
-                  <span class="note-duration">Bien-être déclaré : 7,7/10</span>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
+    <div class="devices">
+      <div class="device">
+        <div class="device-icon">💻</div>
+        <div>PC Windows / Mac</div>
       </div>
-
-      <!-- Texte -->
-      <div class="suivi-content fade-up">
-        <p class="section-label">Suivi clinique</p>
-        <h2 class="section-title">Pensé pour la pratique<br>du psychologue</h2>
-        <p class="section-desc" style="margin-bottom:32px;">
-          Chaque fiche patient structure le parcours thérapeutique : anamnèse,
-          objectifs mesurables, notes de séance organisées et suivi de l&apos;évolution
-          clinique séance après séance.
-        </p>
-
-        <ul class="suivi-list">
-          <li>
-            <div class="suivi-check">✓</div>
-            <div>
-              <strong>Notes de séance structurées</strong>
-              <p>Sections dédiées : observations cliniques, points de progrès, axes de travail, objectifs pour la prochaine séance.</p>
-            </div>
-          </li>
-          <li>
-            <div class="suivi-check">✓</div>
-            <div>
-              <strong>Suivi de l&apos;évolution du patient</strong>
-              <p>Graphe de bien-être subjectif séance par séance, visualisation des progrès sur l&apos;ensemble du parcours.</p>
-            </div>
-          </li>
-          <li>
-            <div class="suivi-check">✓</div>
-            <div>
-              <strong>Objectifs thérapeutiques mesurables</strong>
-              <p>Définissez des cibles cliniques (réduction de l&apos;évitement, sommeil, gestion émotionnelle) et suivez leur avancement.</p>
-            </div>
-          </li>
-          <li>
-            <div class="suivi-check">✓</div>
-            <div>
-              <strong>Protocoles &amp; approches documentés</strong>
-              <p>TCC, EMDR, hypnose, pleine conscience — associez chaque patient à son protocole et retrouvez l&apos;historique complet.</p>
-            </div>
-          </li>
-        </ul>
+      <div class="device">
+        <div class="device-icon">📱</div>
+        <div>Téléphone iOS / Android</div>
       </div>
+      <div class="device">
+        <div class="device-icon">📱</div>
+        <div>Tablette</div>
+      </div>
+      <div class="device">
+        <div class="device-icon">🌐</div>
+        <div>Hors ligne (PWA)</div>
+      </div>
+    </div>
 
+    <div class="export-formats">
+      <h3>Exportez comme vous voulez</h3>
+      <div class="formats">
+        <span class="format-badge">📊 Excel</span>
+        <span class="format-badge">📄 PDF</span>
+        <span class="format-badge">📋 CSV</span>
+        <span class="format-badge">☁️ Google Drive</span>
+        <span class="format-badge">💾 Backup local</span>
+        <span class="format-badge">🔄 Synchronisation</span>
+      </div>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════
-     COMPATIBILITÉ & ACCESSIBILITÉ
-════════════════════════════════════════════════════ -->
-<section id="compat">
+<!-- CTA FINAL -->
+<section class="cta-final fade-up">
   <div class="container">
-    <div class="section-header fade-up" style="text-align:center; max-width:680px; margin:0 auto 56px;">
-      <p class="section-label">Ouverture &amp; accessibilité</p>
-      <h2 class="section-title">Vos données vous appartiennent,<br>sur tous vos appareils</h2>
-      <p class="section-desc" style="max-width:100%; margin-bottom:0;">
-        PsychHub exporte dans des formats standard ouverts, lisibles par n&apos;importe quel logiciel tiers.
-        L&apos;interface s&apos;adapte à votre écran, de l&apos;ordinateur de bureau au smartphone.
-      </p>
-    </div>
-
-    <!-- Formats -->
-    <div class="compat-block fade-up">
-      <h3 class="compat-block-title">Formats d&apos;export compatibles</h3>
-      <div class="formats-grid">
-
-        <div class="format-card">
-          <div class="format-icon fi-teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
-              <line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/>
-            </svg>
-          </div>
-          <div class="format-name">Excel</div>
-          <div class="format-ext">.xlsx</div>
-          <div class="format-desc">Patients, séances, factures — toutes les données en colonnes exploitables</div>
-        </div>
-
-        <div class="format-card">
-          <div class="format-icon fi-slate">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
-              <line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/>
-            </svg>
-          </div>
-          <div class="format-name">Word</div>
-          <div class="format-ext">.docx</div>
-          <div class="format-desc">Dossiers patients, courriers et comptes-rendus de séance formatés</div>
-        </div>
-
-        <div class="format-card">
-          <div class="format-icon fi-rose">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
-            </svg>
-          </div>
-          <div class="format-name">PDF</div>
-          <div class="format-ext">.pdf</div>
-          <div class="format-desc">Factures aux normes, dossiers patients, exports prêts à imprimer ou archiver</div>
-        </div>
-
-        <div class="format-card">
-          <div class="format-icon fi-teal-dark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/>
-              <line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/>
-            </svg>
-          </div>
-          <div class="format-name">CSV</div>
-          <div class="format-ext">.csv</div>
-          <div class="format-desc">Export brut pour import dans n&apos;importe quel tableur ou outil d&apos;analyse</div>
-        </div>
-
-        <div class="format-card">
-          <div class="format-icon fi-indigo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-          </div>
-          <div class="format-name">iCalendar</div>
-          <div class="format-ext">.ics</div>
-          <div class="format-desc">Séances exportées vers Google Agenda, Outlook ou Apple Calendar</div>
-        </div>
-
-        <div class="format-card">
-          <div class="format-icon fi-teal-mid">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-            </svg>
-          </div>
-          <div class="format-name">JSON</div>
-          <div class="format-ext">.json</div>
-          <div class="format-desc">Sauvegarde complète et fidèle — réimportable à tout moment sans perte</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Appareils -->
-    <div class="compat-block fade-up">
-      <h3 class="compat-block-title">Accessible sur tous vos appareils</h3>
-      <div class="devices-grid">
-
-        <div class="device-card">
-          <div class="device-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-            </svg>
-          </div>
-          <div class="device-name">Ordinateur</div>
-          <div class="device-desc">Windows · macOS · Linux<br>Expérience complète avec toutes les fonctionnalités</div>
-        </div>
-
-        <div class="device-card">
-          <div class="device-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="22" x2="15" y2="22"/>
-            </svg>
-          </div>
-          <div class="device-name">Tablette</div>
-          <div class="device-desc">iPad · Android · Surface<br>Interface adaptée pour la saisie en mobilité</div>
-        </div>
-
-        <div class="device-card">
-          <div class="device-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
-            </svg>
-          </div>
-          <div class="device-name">Smartphone</div>
-          <div class="device-desc">iOS · Android<br>Consultation rapide entre deux séances</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Aucune perte de données -->
-    <div class="no-loss-block fade-up">
-      <div class="no-loss-icon">🛡️</div>
-      <div class="no-loss-content">
-        <h3 class="no-loss-title">Aucune perte de données possible</h3>
-        <p class="no-loss-desc">
-          Sauvegardes automatiques toutes les 24h (configurable), vérification d&apos;intégrité SHA-256
-          à chaque backup, rétention des 7 dernières copies minimum, et synchronisation optionnelle
-          Google Drive. En cas de problème matériel, vos données sont reconstituables intégralement.
-        </p>
-        <div class="no-loss-guarantees">
-          <span class="no-loss-pill">✓ Backup local automatique</span>
-          <span class="no-loss-pill">✓ Vérification SHA-256</span>
-          <span class="no-loss-pill">✓ 7 copies minimum conservées</span>
-          <span class="no-loss-pill">✓ Google Drive optionnel</span>
-          <span class="no-loss-pill">✓ Réimport JSON sans perte</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════
-     DOCTOLIB
-════════════════════════════════════════════════════ -->
-<section id="doctolib">
-  <div class="container">
-    <div class="section-header fade-up" style="text-align:center; max-width:700px; margin:0 auto 52px;">
-      <p class="section-label">Automatisation</p>
-      <h2 class="section-title">Synchronisé avec Doctolib</h2>
-      <p class="section-desc">
-        Vos rendez-vous à jour automatiquement — sans saisie manuelle redondante.
-      </p>
-    </div>
-
-    <div class="doctolib-inner fade-up">
-
-      <!-- Mockup import -->
-      <div class="doctolib-mockup">
-        <div class="mockup-shadow">
-          <div class="mockup-titlebar">
-            <span class="dot red"></span>
-            <span class="dot amber"></span>
-            <span class="dot green"></span>
-            <div class="mockup-url">localhost:3000/import-export</div>
-          </div>
-          <div class="doctolib-body">
-
-            <div class="doctolib-step">
-              <div class="step-number">1</div>
-              <div class="step-content">
-                <div class="step-title">Exporter depuis Doctolib</div>
-                <div class="step-desc">Téléchargez votre fichier "Mes rendez-vous" en XLSX</div>
-              </div>
-            </div>
-
-            <div class="doctolib-divider"></div>
-
-            <div class="doctolib-step">
-              <div class="step-number">2</div>
-              <div class="step-content">
-                <div class="step-title">Uploader dans PsychHub</div>
-                <div class="step-desc">Glisser-déposer le fichier XLSX — détection automatique</div>
-              </div>
-            </div>
-
-            <div class="doctolib-divider"></div>
-
-            <div class="doctolib-step">
-              <div class="step-number">3</div>
-              <div class="step-content">
-                <div class="step-title">C'est fait ! 🎉</div>
-                <div class="step-desc">Séances créées, patients automatiques, statuts à jour</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Avantages -->
-      <div class="doctolib-benefits fade-up">
-        <p class="section-label" style="margin-bottom:20px; text-align:center;">Zéro saisie manuelle</p>
-
-        <ul class="benefits-list">
-          <li>
-            <div class="benefit-check">✓</div>
-            <div>
-              <strong>Import en 3 clics</strong>
-              <p>Export Doctolib → Upload → Fait. Tout se synchronise automatiquement.</p>
-            </div>
-          </li>
-          <li>
-            <div class="benefit-check">✓</div>
-            <div>
-              <strong>Création automatique de patients</strong>
-              <p>Les patients inconnus sont créés instantanément avec leurs coordonnées Doctolib.</p>
-            </div>
-          </li>
-          <li>
-            <div class="benefit-check">✓</div>
-            <div>
-              <strong>Statuts à jour</strong>
-              <p>Séances planifiées, honorées, annulées, absences — tout est synchronisé.</p>
-            </div>
-          </li>
-          <li>
-            <div class="benefit-check">✓</div>
-            <div>
-              <strong>Historique complet conservé</strong>
-              <p>Aucune donnée perdue. Chaque réimport met à jour sans effacer l'existant.</p>
-            </div>
-          </li>
-          <li>
-            <div class="benefit-check">✓</div>
-            <div>
-              <strong>Pas de double-saisie</strong>
-              <p>Une seule source de vérité : Doctolib → PsychHub. Gagnez 30 min par semaine.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
+    <h2>Prêt à organiser votre cabinet ?</h2>
+    <p>PsychHub est gratuit, simple et sécurisé. Aucune donnée personnelle ne vous sera demandée.</p>
+    <div class="final-actions">
+      <a href="https://github.com/Mistercarmi/psychhub-landing" target="_blank" class="btn btn-primary btn-large">Découvrir le code</a>
+      <a href="https://github.com/Mistercarmi/psychhub-landing" target="_blank" class="btn btn-outline btn-large">En savoir plus</a>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════
-     TRUST
-════════════════════════════════════════════════════ -->
-<section id="trust">
-  <div class="container">
-    <div class="trust-grid">
-
-      <div class="trust-item fade-up">
-        <div class="trust-icon">🔒</div>
-        <h3 class="trust-title">Stockage 100&nbsp;% local</h3>
-        <p class="trust-desc">
-          Les données restent sur votre ordinateur dans une base SQLite.
-          Aucune donnée patient ne transite par un serveur externe.
-        </p>
-      </div>
-
-      <div class="trust-item fade-up">
-        <div class="trust-icon">📋</div>
-        <h3 class="trust-title">Conformité RGPD native</h3>
-        <p class="trust-desc">
-          Journal d&apos;audit sur chaque modification, chiffrement BitLocker recommandé,
-          export et suppression des données en un clic.
-        </p>
-      </div>
-
-      <div class="trust-item fade-up">
-        <div class="trust-icon">🚫</div>
-        <h3 class="trust-title">Aucun serveur, aucun abonnement</h3>
-        <p class="trust-desc">
-          Logiciel libre, installé en local. Fonctionne sans connexion internet.
-          La synchronisation Google Drive est entièrement optionnelle.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-inner">
-      <a href="#" class="footer-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
-          <rect width="192" height="192" rx="40" fill="#2c8a8c"/>
-          <g transform="translate(48,48)" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
-            <path d="M16 8v40c0 13.3 10.7 24 24 24h0c13.3 0 24-10.7 24-24V8"/>
-            <path d="M16 8h12"/><path d="M52 8h12"/>
-            <circle cx="40" cy="80" r="4" fill="#ffffff"/>
-            <path d="M40 84v8"/>
-          </g>
-        </svg>
-        PsychHub
-      </a>
-
-      <div class="footer-links">
-        <a href="#features">Fonctionnalités</a>
-        <a href="#suivi">Suivi patient</a>
-        <a href="#doctolib">Doctolib</a>
-        <a href="#compat">Compatibilité</a>
-        <a href="#">GitHub</a>
-        <a href="#">Signaler un problème</a>
+    <div class="footer-content">
+      <div>
+        <h4>PsychHub</h4>
+        <p>Logiciel libre pour cabinets de psychologie.</p>
+      </div>
+      <div>
+        <h4>Liens</h4>
+        <a href="#avantages">Avantages</a>
+        <a href="#fonctionnalites">Fonctionnalités</a>
+        <a href="#securite">Sécurité</a>
+        <a href="https://github.com/Mistercarmi/psychhub-landing" target="_blank">GitHub</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="https://github.com/Mistercarmi/psychhub-landing/issues" target="_blank">Signaler un problème</a>
       </div>
     </div>
-
-    <p class="footer-copy">
-      PsychHub · Logiciel libre pour cabinets de psychologie solo &nbsp;·&nbsp;
-      Conçu et maintenu avec soin, loin des abonnements.
-    </p>
+    <div class="footer-bottom">
+      <p>PsychHub © 2026 • Logiciel libre • <a href="https://github.com/Mistercarmi/psychhub-landing" target="_blank">Code source</a></p>
+    </div>
   </div>
 </footer>
 

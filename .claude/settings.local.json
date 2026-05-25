@@ -10,7 +10,10 @@
       "Bash(git config *)",
       "Bash(rm -r landing/.git)",
       "Bash(rm -r .git)",
-      "Bash(gh api *)"
+      "Bash(gh api *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(cp -r landing/. .)",
+      "Bash(rm -rf landing)"
     ]
   }
 }
